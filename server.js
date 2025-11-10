@@ -11,11 +11,8 @@ const path = require('path');
 server.use(express.static(path.join(__dirname, 'public')));
 
 //API STUFF
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 13001;
 require('dotenv').config();
-const API_KEY = process.env.API_KEY;
-const SHEET_ID = process.env.SHEET_ID;
-const OAUTH= process.env.OAUTH;
 
 const fs = require('node:fs');
 
@@ -26,30 +23,11 @@ const fs = require('node:fs');
 
 
 
-
-const {google} = require('googleapis');
-const auth = new google.auth.GoogleAuth({
-    keyFile: 'google.json', 
-    scopes: ['https://www.googleapis.com/auth/spreadsheets'],
-});
-
 //function to write to the google sheet
 async function writeToSheet(values){
 	console.log('where i should be 2');
 
-  const sheet = google.sheets({version: 'v4', auth});
-  const spreadsheetId = '1n42DwvYNrp1V7zX6BuTF80oZFlRtyEgtQCr3ewLP-7I';//'1n42DwvYNrp1V7zX6BuTF80oZFlRtyEgtQCr3ewLP-7I';
-  const range = 'Sheet1!A1'; 
-  const inputOption = 'USER_ENTERED';
-  const resource = {values};
-  try {
-    const res = await sheet.spreadsheets.values.update({
-      spreadsheetId,range, inputOption, resource
-    })
-    return res;
-  }catch(error){
-      console.error('the error is ', error);
-  }
+
 }
 
 (async () => {
@@ -198,7 +176,7 @@ server.post('/poems', (req, res) => {
 //COMPUTERS HAVE AN IP ADDRESS THAT S A NUMERICAL STRING ASSIGNED TO THE COMPUTER BY THE NETWORK THAT YOU'RE ON
 // PORTS ABOVE 2000 ARE GENERALLY OPEN FOR PEOPLE TO USE
 // 13001 IS OFTEN USED FOR TESTING APPLICATIONS
-server.listen(13001, () => {
+server.listen(port, () => {
 	console.log("server running on port 13001");
 	const toWrite =  writeToSheet([{'train':"A",'poem': 'I have been poemed'},{"train":'Q train',"poem":'poem in poem in poem in poem'}]);
   	console.log('where i should be');

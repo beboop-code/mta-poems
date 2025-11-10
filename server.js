@@ -86,56 +86,13 @@ server.get('/', (req, res) => {
 });
 
 
-server.get('/poems', async (req, res) => {
-    
-  try {
-    // Fetch all data from row 2 to the last row dynamically
-    const range = `Sheet1!A1:A3`;
-    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${range}?key=${API_KEY}`;
-    //const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}?ranges=Sheet1!A1:F5&fields=sheets/data/rowData/values/userEnteredValue&key=${API_KEY}`;
-
-    const response = await fetch(url);
-    const data = await response.json();
-
-    if (data.error) {
-      console.error('Sheet API Error:', data.error);
-      return res.status(400).json({ error: data.error.message });
-    }
-
-	console.log('Fetched sheet data:', data);
-    const rows = data.values || [];
-    const numRows = 5;  // Your desired row count
-    const numCols = 6;  // Your desired column count (A-F)
-
-    // Fill in empty cells
-    const filledRows = [];
-    for (let i = 0; i < numRows; i++) {
-      const row = rows[i] || [];
-      const filledRow = [];
-      for (let j = 0; j < numCols; j++) {
-        filledRow.push(row[j] || '');
-      }
-      filledRows.push(filledRow);
-    }
-    
-    res.json({ data: filledRows });
-  } catch (error) {
-    //console.error('Error fetching sheet:', error);
-    res.status(500).json({ error: error.message });
-  }
-});
-
-
-
-
-
 
 
 server.post('/bored', (req, res) => {
 	//whenever someone hits this with a post, do this
 
-	const {train, poem} = req.body; //destructure the name and animal from the request body
-	const newItem= {id:musings.length+1, train, poem};
+	const {date,time, train, poem} = req.body; //destructure the name and animal from the request body
+	const newItem= {id:musings.length+1, date, time, train, poem};
 	//add it to the array
 	musings.push(newItem);
 	console.log('Received upd');
@@ -158,8 +115,8 @@ server.post('/bored', (req, res) => {
 server.post('/poems', (req, res) => {
 	//whenever someone hits this with a post, do this
 
-	const {train, poem} = req.body; 
-	const newItem= {id:musings.length+1, train, poem};
+	const {date, time, train, poem} = req.body; 
+	const newItem= {id:musings.length+1, date, time, train, poem};
 	//add it to the array
 	musings.push(newItem);
 	console.log('Received upd');

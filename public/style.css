@@ -67,3 +67,10 @@ p {
 }
   
 
+@media (max-width: 768px) {
+    /* CSS rules for screens smaller than or equal to 768px */
+    .page-container {
+        padding: 10px 10px 10px 10px; /* Top/Bottom: 15px, Left/Right: 25px */
+}
+      
+}

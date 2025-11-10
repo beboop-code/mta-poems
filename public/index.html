@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="eng">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=.7"/>
+    <meta name="description" content="write subway poems" />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="subway poems" />
+    <meta property="og:description" content="subway poems" />
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.8/lib/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5.sound@latest/dist/p5.sound.min.js"></script>
+    <!-- <script>
+    
+      document.getElementByID("output").innerHTML = "hello world";
+      
+    
+    </script> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Italiana&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Italiana&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- <script src="/socket.io/socket.io.js"></script> -->
+    <title>subway poetry</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+  </head>
+  <body>
+    <div class="page-container">
+      <h1 id="bored">Bored?</h1>
+      <h1 id="writeA">Write a subway poem!</h1>
+      <!-- <p>write a poem to add to the database of poetry written while on the mta 
+      </p>
+      <p>submissions are anonymous</p> -->
+      <!-- <form> -->
+    
+      <textarea id="bigPoemBox" name="bigPoemBox" rows="10" cols="50" placeholder="write your poem here"></textarea>
+      <p></p>
+      <textarea id="trainBox" name="trainBox" rows="1" cols="26" placeholder="what train are you on?"></textarea>
+
+
+      <p>**All poems will be submitted to the official Subway Poem database, where they will be accessible to others. Please don’t 
+        include any personal information in your submission.** </p>
+
+        <div class="button-container">
+        <form action="/bored" id="poemForm">
+        <!-- <label for="fname">First name:</label>
+        <input type="text" id="poemInput" name="poem"><br><br> -->
+        <input type="submit" value="See a random poem from the database">
+      </form>
+      <button id="myButton">Submit my poem</button>
+
+        <!-- <p> </p> -->
+      <!-- <form>
+        <form id="toDatabase">
+        <input type="submit" value="Submit my poem">
+        </form>
+        </div> -->
+        <p> </p>
+    <!-- <p id="output">change this text</p> -->
+     <script src="sketch_p5.js"></script>
+     </div>
+  
+
+
+
+
+    
+  </body>
+</html>

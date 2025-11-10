@@ -1,0 +1,69 @@
+#bored{
+font-size: 40px;
+font-family: 'Italiana', serif;
+font-weight: 450;
+/* display: inline; */
+
+}
+
+#writeA {
+  font-size: 30px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 100;
+  /* display: inline; */
+
+}
+
+
+#toDatabase {
+  display: inline;
+
+}
+
+#poemForm {
+  display: inline;
+
+}
+
+
+#myButton {
+  display: inline;
+
+}
+
+
+
+.italiana-regular {
+  font-family: "Italiana", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  /* padding: 0px 950px 0px 0px; Top/Bottom: 15px, Left/Right: 25px */
+}
+
+.button-container {
+  display: flex;             /* make it a flex container */
+  align-items: center;       /* vertically align buttons */
+  justify-content: left;     /* align to the left */
+  gap: 20px;                 /* spacing between buttons */
+}
+
+.button-container form {
+  display: inline;           /* ensure form doesn’t expand full width */
+  margin: 0;                 /* remove default margin */
+}
+
+.button-container button,
+.button-container input[type='submit'] {
+  cursor: pointer;
+}
+
+.page-container {
+  padding: 0px 950px 0px 20px; /* Top/Bottom: 15px, Left/Right: 25px */
+}
+  
+

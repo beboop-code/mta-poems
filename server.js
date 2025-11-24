@@ -39,23 +39,8 @@ async function writeToSheet(values){
 
 
 
-
-
-
-
-
 //SERVER IS AN INSTANCE OF THE EXPRESS LIBRARY 
 
-
-//DEFINE AN ARRAY OF OBJECTS
-
-// fs.readFile('books.json', function(err, data) { 
-
-//     if (err) throw err; 
-
-//     const books = JSON.parse(data); 
-//     console.log(books); 
-// }); 
 
 let musings = 
 [
@@ -65,9 +50,40 @@ let musings =
 ];
 
 
+let vettedMusings = 
+[
+	{ id:1 , train: "A", poem: "boredom, boredom everywhere. locked into phones, no looking around"},
+	{ id:2 , train:"A", poem: "I wanted to see the city. Instead, the city has seen me" },
+	{ id:3 , train:"N", poem:"testing out\ntheories\nof change\nwith\nn\ne\nw\nl\ni\nn\ne\ns"},
+	{ id:4 , train:"F", poem:"I can't write poems!"},
+	{ id:5 , train:"1", poem:"Why won't the ads stop?\nI just want to read my book.\nIs that too much to ask?"},
+	{ id:6 , train:"4", poem:"Like lilies in the park, we too bloom and fade"}
+];
+
+
 //DEFINE A ROUTE FOR HTTP GET REQUESTS TO "/mycoolapi/pets"
 server.get('/bored', (req, res) => {
 	res.json(musings);
+});
+
+server.get('/hi', (req, res) => {
+	res.writeHead(200, {"Content-Type": "text/html"});
+	res.write("Hi there dear!");
+	res.end();
+});
+
+
+server.get('/random-poem', (req, res) => {
+	let randNum=Math.floor(Math.random()*(vettedMusings.length));
+	randPoem=vettedMusings[randNum];
+	// let randNum=Math.floor(Math.random()*(musings.length));
+	// randPoem=musings[randNum];
+	res.writeHead(200, {"Content-Type": "text/html"});
+	let str=randPoem.poem+", written on the "+randPoem.train+" train"
+	let jsonp={poem:randPoem.poem, train: randPoem.train};
+	res.write(JSON.stringify(jsonp));
+	res.end();
+
 });
 
 // define what to do when the client requests something:
@@ -91,14 +107,14 @@ server.get('/', (req, res) => {
 server.post('/bored', (req, res) => {
 	//whenever someone hits this with a post, do this
 
-	const {date,time, train, poem} = req.body; //destructure the name and animal from the request body
+	const {date,time, train, poem} = req.body; //destructure the data from the request body
 	const newItem= {id:musings.length+1, date, time, train, poem};
 	//add it to the array
 	musings.push(newItem);
 	console.log('Received upd');
 	
-	let dataString=', '+JSON.stringify(newItem);
-	fs.writeFile('data.txt', dataString,  { flag: 'a+' }, err => {
+	let dataString=',\n'+JSON.stringify(newItem);
+	fs.writeFile('prevetted-data.txt', dataString,  { flag: 'a+' }, err => {
 	if (err) {
 		console.error(err);
 	} else {

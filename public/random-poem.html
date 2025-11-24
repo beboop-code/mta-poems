@@ -9,6 +9,7 @@
     <meta property="og:description" content="subway poems" />
 
     <script src="https://cdn.jsdelivr.net/npm/p5@1.11.8/lib/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5.sound@latest/dist/p5.sound.min.js"></script>
     <!-- <script>
     
       document.getElementByID("output").innerHTML = "hello world";
@@ -29,29 +30,38 @@
   </head>
   <body>
     <div class="page-container">
-      <h1 id="bored">Bored?</h1>
-      <h1 id="writeA">Write a subway poem!</h1>
-      <!-- <p>write a poem to add to the database of poetry written while on the mta 
+      <h1 id="writeA">Poems from the archive</h1>
+      
+      <p id="dynamicPoem">
+        the train snakes through the tunnels
+        like people 
+        always looking around
+        finding nowhere to go but 
+        forward
       </p>
-      <p>submissions are anonymous</p> -->
-      <!-- <form> -->
-    
-    <textarea id="bigPoemBox" name="bigPoemBox" rows="10" cols="50" placeholder="write your poem here"></textarea>
-    <p></p>
-    <textarea id="trainBox" name="trainBox" rows="1" cols="26" placeholder="what train are you on?"></textarea>
+      <i>
+      <span>-Written while musing on </span>
+      <span id="dynamicTrain">the Q</span>
+      <span> train</span> 
+      </i>
+      <p>   </p>
+      <p>   </p>
 
 
-    <p>**All poems will be submitted to the official Subway Poem database, where they will be accessible to others. Please don’t include any personal information in your submission.** </p>
+        <div class="button-container">
+        <form action="/bored" id="poemForm">
+        <!-- <label for="fname">First name:</label>
+        <input type="text" id="poemInput" name="poem"><br><br> -->
+          </form>
+ 
+    <button onclick="document.location.href='index.html'"> <-- go back </button>
+    <button id="new-poem">see another poem</button>
 
-    <div class="button-container">
-      <form action="/random-poem.html" id="poemForm">
-          <input type="submit" value="See a random poem from the database">
-      </form>
-      <button id="myButton">Submit my poem</button>
-      <!-- <a href="random-poem.html"> go to poems</a> -->
-      <p> </p>
-      <script src="sketch_p5.js"></script>
+    <p> </p>
+    <script src="poem_page.js"></script>
     </div>
 
+
+    
   </body>
 </html>

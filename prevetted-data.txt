@@ -1,0 +1,10 @@
+{ id:1 , train: "A", poem: "boredom, boredom everywhere. locked into phones, no looking around"},	
+{ id:2 , train:"A", poem: "I wanted to see the city. Instead, the city has seen me" },
+{"id":3,"date":"11232025","time":"21:39","train":"f","poem":"i can't write poems!"},
+{"id":3,"date":"11232025","time":"21:49","train":"","poem":"what a ride"},
+{"id":4,"date":"11232025","time":"21:49","train":"","poem":"what a ride"},
+{"id":3,"date":"11232025","time":"21:51","train":"","poem":"ride"},
+{"id":4,"date":"11232025","time":"21:51","train":"","poem":"ride"},
+{"id":5,"date":"11232025","time":"21:51","train":"","poem":"ride"},
+{"id":6,"date":"11232025","time":"22:05","train":"","poem":"hello world"},
+{"id":7,"date":"11232025","time":"22:08","train":"","poem":""}

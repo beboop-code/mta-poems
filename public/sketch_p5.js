@@ -33,15 +33,19 @@ function submit() {
       text("Please write a poem to submit · ♡ · ♡ ·",22,50);
     }
     else{
-      //let the train text be empty 
+      //its ok if the train text is empty 
       background(255); // to cover any previous text
       fill(174,55,255);
       textSize(15);
       text("Poem received—thank you · ♡ · ♥︎ · ❤︎ · ♥︎ · 𖹭 · ",22,50);
+      //empty the submit boxes so they can submit again if they want
+      poemText.value = '';
+      trainText.value = '';
       let dateFull = new Date();
-      let date= String(month())+String(day())+String(year()); // current year
+      // nf is the same as casting as a string, but ensures each number has a specific # of digits
+      let date= nf(month(),2)+nf(day(),2)+nf(year(),4); // current year
       print(date);
-      let time = String(hour())+":"+String(minute());
+      let time = nf(hour(),2)+":"+nf(minute(),2);
       const response = fetch('/bored', { // Your Node.js endpoint
           method: 'POST',
           headers: {
@@ -63,8 +67,8 @@ function submit() {
           //body: JSON.stringify({"train":  nameField.value(), "poem": poemText.value})
           body: JSON.stringify({"date": date,"time":time,"train":  trainText.value, "poem": poemText.value})
       });
-
-      getLocalData();
+      print(getter);
+      //getLocalData();
       //getAPIData();
   }
 }
@@ -86,7 +90,7 @@ async function getLocalData() {
 
 
 async function getAPIData() {
-  const url = "http://localhost:13001/poems";
+  const url = "http://localhost:13001/random-poem";
   try {
     const response = await fetch(url);
     if (!response.ok) {

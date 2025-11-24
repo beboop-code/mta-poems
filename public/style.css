@@ -90,7 +90,7 @@ span {
     .page-container {
         /* padding: 10px 10px 10px 10px; Top/Bottom: 15px, Left/Right: 25px */
         /* background: red; */
-        width: 100%;
+        width: 95%;
     }
   #bigPoemBox{
     width:90%;
@@ -106,12 +106,19 @@ span {
   #bored{
     font-size:9vw;
   }
-  .button-container {
-  display: flex;             /* make it a flex container */
-  align-items: left;       /* vertically align buttons */
-  justify-content: left;     /* align to the left */
-  gap: 20px;                 /* spacing between buttons */
-  flex-direction: column-reverse;
-}
+.button-container {
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-left: 0;
+    margin-top: -40px;
+    width: 90%; /* expand to full width */
+    gap: 10px;
+  }
+
+  .button-container form {
+    width: auto;
+    margin: 0;
+  }
       
 }

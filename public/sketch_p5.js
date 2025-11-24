@@ -34,7 +34,7 @@ function submit() {
     }
     else{
       //its ok if the train text is empty 
-      background(255); // to cover any previous text
+      background(255); //  to cover any previous text
       fill(174,55,255);
       textSize(15);
       text("Poem received—thank you · ♡ · ♥︎ · ❤︎ · ♥︎ · 𖹭 · ",22,50);

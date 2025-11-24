@@ -79,7 +79,6 @@ server.get('/random-poem', (req, res) => {
 	// let randNum=Math.floor(Math.random()*(musings.length));
 	// randPoem=musings[randNum];
 	res.writeHead(200, {"Content-Type": "text/html"});
-	let str=randPoem.poem+", written on the "+randPoem.train+" train"
 	let jsonp={poem:randPoem.poem, train: randPoem.train};
 	res.write(JSON.stringify(jsonp));
 	res.end();

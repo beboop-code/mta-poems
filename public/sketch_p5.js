@@ -16,12 +16,10 @@ async function setup() {
     nameStuff = createDiv();
     nameStuff.id('nameStuff');
     nameStuff.position(10, 210);
-    //nameStuff.child(nameField);
     nameStuff.child(submitButton);
 }
 
 function submit() {
-    //text(nameField.value(),150,150);
 
     const poemText = document.getElementById('bigPoemBox');
     const trainText = document.getElementById('trainBox');
@@ -38,9 +36,6 @@ function submit() {
       fill(174,55,255);
       textSize(15);
       text("Poem received—thank you · ♡ · ♥︎ · ❤︎ · ♥︎ · 𖹭 · ",22,50);
-      //empty the submit boxes so they can submit again if they want
-      poemText.value = '';
-      trainText.value = '';
       let dateFull = new Date();
       // nf is the same as casting as a string, but ensures each number has a specific # of digits
       let date= nf(month(),2)+nf(day(),2)+nf(year(),4); // current year
@@ -55,6 +50,10 @@ function submit() {
           //body: JSON.stringify({"train": poemText.value, "poem": nameField.value()})
           body: JSON.stringify({"date": date,"time":time,"train":  trainText.value, "poem": poemText.value})
       });
+
+       //empty the submit boxes so they can submit again if they want
+      poemText.value = '';
+      trainText.value = '';
 
 
       const getter = fetch('/', { // Your Node.js endpoint

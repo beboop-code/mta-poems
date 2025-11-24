@@ -111,6 +111,7 @@ server.post('/bored', (req, res) => {
 	//add it to the array
 	musings.push(newItem);
 	console.log('Received upd');
+	console.log(newItem);
 	
 	let dataString=',\n'+JSON.stringify(newItem);
 	fs.writeFile('prevetted-data.txt', dataString,  { flag: 'a+' }, err => {

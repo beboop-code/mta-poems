@@ -112,7 +112,7 @@ server.post('/bored', (req, res) => {
 	musings.push(newItem);
 	console.log('Received upd');
 	console.log(newItem);
-	
+	sendDiscordMessage(JSON.stringify(newItem));
 	let dataString=',\n'+JSON.stringify(newItem);
 	fs.writeFile('prevetted-data.txt', dataString,  { flag: 'a+' }, err => {
 	if (err) {
@@ -154,3 +154,29 @@ server.listen(port, () => {
 	const toWrite =  writeToSheet([{'train':"A",'poem': 'I have been poemed'},{"train":'Q train',"poem":'poem in poem in poem in poem'}]);
   	console.log('where i should be');
 });
+
+const webhookURL = 'https://discord.com/api/webhooks/1443078561010417714/tLnkmXQE4fSwQPlLvnQdoNNCgDgzgCnCN1-l521Gac56rQV_2LTOM1jmopyPP2FYKs3y';
+
+async function sendDiscordMessage(messageContent) {
+    try {
+        const response = await fetch(webhookURL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                content: messageContent,
+                username: 'ServerBot', // Optional
+            }),
+        });
+
+        if (!response.ok) {
+            console.error('Error sending message:', response.status, response.statusText);
+        } else {
+            console.log('Message sent successfully!');
+        }
+    } catch (error) {
+        console.error('Network error:', error);
+    }
+}
+

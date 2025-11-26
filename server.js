@@ -58,6 +58,7 @@ let vettedMusings =
 	{ id:4 , train:"F", poem:"I can't write poems!"},
 	{ id:5 , train:"1", poem:"Why won't the ads stop?\nI just want to read my book.\nIs that too much to ask?"},
 	{ id:6 , train:"4", poem:"Like lilies in the park, we too bloom and fade"}
+	{ id:7 , train:"R",poem:"This man\nThis jacket\nWay too loud\nWay too colorful\nWay too few pockets\nOf course hes reading \nOf course its in French\nOf course this is his stop\nIt would look better on me"}
 ];
 
 

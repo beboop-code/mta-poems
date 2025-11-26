@@ -59,7 +59,8 @@ let vettedMusings =
 	{ id:5 , train:"1", poem:"Why won't the ads stop?\nI just want to read my book.\nIs that too much to ask?"},
 	{ id:6 , train:"4", poem:"Like lilies in the park, we too bloom and fade"},
 	{ id:7 , train:"R", poem:"This man\nThis jacket\nWay too loud\nWay too colorful\nWay too few pockets\nOf course hes reading \nOf course its in French\nOf course this is his stop\nIt would look better on me"},
-	{ id:8 , train:"R", poem:"She sat to my left \nHer smile reminds me of home\nEverything I could want and need\nI wonder what her favorite color is\nSomeday, I might know\nGreen, perhaps\nOrange, we may bond over\nNo, she left, think I'll die alone\nExcept I look to my right\nShe also seems nice"}
+	{ id:8 , train:"R", poem:"She sat to my left \nHer smile reminds me of home\nEverything I could want and need\nI wonder what her favorite color is\nSomeday, I might know\nGreen, perhaps\nOrange, we may bond over\nNo, she left, think I'll die alone\nExcept I look to my right\nShe also seems nice"},
+	{ id:9 , train: "Downtown A", poem: "Hothes ohw owkn rea rnae geignr ghyll"}
 ];
 
 

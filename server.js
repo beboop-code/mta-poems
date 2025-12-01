@@ -158,7 +158,7 @@ server.listen(port, () => {
   	console.log('where i should be');
 });
 
-const webhookURL = 'https://discord.com/api/webhooks/1443078561010417714/tLnkmXQE4fSwQPlLvnQdoNNCgDgzgCnCN1-l521Gac56rQV_2LTOM1jmopyPP2FYKs3y';
+const webhookURL = process.env.DISCORD_WEBHOOK_URL;
 
 async function sendDiscordMessage(messageContent) {
     try {

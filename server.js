@@ -1,7 +1,7 @@
 // include any libraries
 const express = require('express');  // include the express library 
 // declare any global variables:
-
+const mqtt = require("mqtt");
 const bodyParser = require('body-parser'); // include the body-parser library to help parse JSON data in requests
 //THIS IS SAYING HEY SERVER, WHENEVER YOU RECIEVE A REQUEST, USE THE BODY-PARSER TO DEAL WITH IT
 const server = express();			       // create a named server using express 
@@ -64,6 +64,19 @@ let vettedMusings =
 ];
 
 
+
+
+const mqttgoto= process.env.MQTT_SERVER
+const mqttusr= process.env.MQTT_USR
+const mqttpass= process.env.MQTT_PASS
+const client = mqtt.connect(mqttgoto, {
+  username: mqttusr,
+  password: mqttpass,
+  port: 8883
+
+});
+
+
 //DEFINE A ROUTE FOR HTTP GET REQUESTS TO "/mycoolapi/pets"
 server.get('/bored', (req, res) => {
 	res.json(musings);
@@ -116,6 +129,7 @@ server.post('/bored', (req, res) => {
 	console.log('Received upd');
 	console.log(newItem);
 	sendDiscordMessage(JSON.stringify(newItem));
+	client.publish("mta/poems", poem);
 	let dataString=',\n'+JSON.stringify(newItem);
 
 
@@ -187,4 +201,25 @@ async function sendDiscordMessage(messageContent) {
         console.error('Network error:', error);
     }
 }
+
+//MQTT stuff below
+
+client.on("connect", () => {
+  console.log("Connected to HiveMQ");
+  //client.subscribe("mta/poems");
+  //client.publish("mta/poems", "Hello from Nodejs!");
+});
+
+client.on("error", (err) => {
+  console.error("Connection failed: ", err);
+});
+
+// client.on("message", (topic, message) => {
+//     mqttMessage=message.toString();
+//     console.log("Message received:", mqttMessage);
+// });
+
+
+
+
 

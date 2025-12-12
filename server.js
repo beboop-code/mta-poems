@@ -117,6 +117,9 @@ server.post('/bored', (req, res) => {
 	console.log(newItem);
 	sendDiscordMessage(JSON.stringify(newItem));
 	let dataString=',\n'+JSON.stringify(newItem);
+
+
+
 	fs.writeFile('prevetted-data.txt', dataString,  { flag: 'a+' }, err => {
 	if (err) {
 		console.error(err);
@@ -161,6 +164,7 @@ server.listen(port, () => {
 const webhookURL = process.env.DISCORD_WEBHOOK_URL;
 
 async function sendDiscordMessage(messageContent) {
+	
     try {
         const response = await fetch(webhookURL, {
             method: 'POST',
@@ -170,6 +174,7 @@ async function sendDiscordMessage(messageContent) {
             body: JSON.stringify({
                 content: messageContent,
                 username: 'ServerBot', // Optional
+				
             }),
         });
 

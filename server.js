@@ -129,7 +129,8 @@ server.post('/bored', (req, res) => {
 	console.log('Received upd');
 	console.log(newItem);
 	sendDiscordMessage(JSON.stringify(newItem));
-	client.publish("mta/poems", poem);
+	let mqttsend=poem+'.,,.'+train;
+	client.publish("mta/poems", mqttsend);
 	let dataString=',\n'+JSON.stringify(newItem);
 
 
